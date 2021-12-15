@@ -93,15 +93,15 @@ def registerForm(request):
                 
                         password = make_password(password)
                         user = User.objects.create(username = username,email = email,password=password)
-                        print("user registration")
+                       
                         user.save()
-                        print("user registered")
+                        
                         userlogin = authenticate(request,username=username,password=raw_password)
-                        print("user authentication")
+                       
                         login(request,userlogin)
-                        print("user login")
+                        
                         return redirect(contactdetails)
-                        print("re directed succefulley")
+                      
             else:
                 msg = "form is not valid"
         
