@@ -1,0 +1,45 @@
+{% extends "layouts/base.html" %}
+{% block title %} Products {% endblock %} 
+{% load static %}
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+{% for product in products %}
+<div class="col-12 col-sm-6 col-xl-4 mb-4">
+    <div class="card border-light shadow-sm">
+        <div class="card-body">
+            <div class="row d-block d-xl-flex align-items-center">
+                <div class="col-12 col-xl-5 px-xl-5">
+                    <div class="d-none d-sm-block">
+                        {% if product.product_image == None %}
+                        <img class="rounded" src="{% static 'svg/avatar.svg' %}">
+                        {% else %}
+                        <img class="rounded" src="{{product.product_image.url}}">
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-12 col-xl-7 px-xl-0">
+                    <div class="d-none d-sm-block">
+                        
+                        <h2 class="mb-1">{{product.title}}</h2>
+                        <h3 class="h5">{{product.price}} per {{product.unit}}</h3>
+                    </div>
+                    <small>Feb 1 - Apr 1,  <span class="icon icon-small"><span class="fas fa-globe-europe"></span></span> {{product.category}}</small> 
+                    <div class="small mt-2">                               
+                        <span class="fas fa-angle-up text-success"></span>                                   
+                        <span class="text-success font-weight-bold">{{product.updated_at|timesince}} ago</span> 
+                        <a class="text-info font-weight-bold" href = "{% url 'profile' product.user.id %}" >from {{product.user}}</a> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- Primary Meta Tags -->
+
+<title>
+    Django Volt Dashboard - {% block title %}{% endblock %} | AppSeed
+</title>
+</head>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-notify/0.2.0/js/bootstrap-notify.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <body>
+     
+      <script>
+        let buttonis = document.getElementById("button")
+        buttonis.addEventListener('click', function (){
+         const notyf = new Notyf({
+        position: {
+            x: 'left',
+            y: 'top',
+        },
+        types: [
+            {
+                type: 'info',
+                background: 'blue',
+                icon: {
+                    className: 'fas fa-info-circle',
+                    tagName: 'span',
+                    color: '#fff'
+                },
+                dismissible: false
+            }
+        ]
+    });
+    notyf.open({
+        type: 'info',
+        message: 'Send us <b>an email</b> to get support'
+    });
+});
+      </script>
+       <button id = "button">click</button>
+  </body>
+</html>

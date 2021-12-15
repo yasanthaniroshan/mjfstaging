@@ -1,0 +1,71 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Add Products {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+<form method="POST" action="" class="mt-4" enctype="multipart/form-data">
+                                
+    {% csrf_token %}
+ <div class="col-lg-6 col-sm-6">
+    <div class="card border-0 shadow components-section">
+        <div class = "card-body">
+            <div class="row">
+                <div class="mb-4">
+                    <label for="title">{{add_products.title.label}}</label>
+                    {{add_products.title}}
+                    <small id="title-help" class="form-text text-muted">Enter your title for product</small>
+                </div>
+                <div class="mb-4">
+                    <label for="unit">{{add_products.unit.label}}</label>
+                    {{add_products.unit}}
+                    <small id="title-help" class="form-text text-muted">Unit of measure</small>
+                </div>
+                <!-- <div class="mb-4">
+                    <label for="title">{{add_products.title.label}}</label>
+                    {{add_products.title}}
+                    <small id="title-help" class="form-text text-muted">Enter your title for product</small>
+                </div> -->
+                <div class="mb-4">
+                    <label for="title">{{add_products.short_description.label}}</label>
+                    {{add_products.short_description}}
+                    <small id="title-help" class="form-text text-muted">Describe your Product</small>
+                </div>
+                <div class="mb-4">
+                    <label for="title">{{add_products.product_image.label}}</label>
+                    {{add_products.product_image}}
+                    <small id="title-help" class="form-text text-muted"></small>
+                </div>
+                <div class="mb-4">
+                    <label for="title">{{add_products.price.label}}</label>
+                    {{add_products.price}}
+                    <small id="title-help" class="form-text text-muted">Unit price of product</small>
+                </div>
+                <div class="mb-4">
+                    <label for="title">{{add_products.available_units.label}}</label>
+                    {{add_products.available_units}}
+                    <small id="title-help" class="form-text text-muted">How much do you have</small>
+                </div>
+                
+                <div class="mb-4">
+                    <button type="submit" name="add-product" class="btn btn-gray-800">add-product</button>
+                </div>
+            </div>
+        
+        
+        </div>
+    </div>
+ </div>
+
+
+
+
+
+    
+</form>
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
